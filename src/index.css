@@ -6,7 +6,7 @@
 
 /* Sidebar Styling */
 .sidebar {
-  @apply fixed left-0 top-0 min-h-screen bg-gray-100 p-4 transition-all duration-300 ease-in-out; /* Use transition-all instead of transition-width */
+  @apply fixed left-0 top-0 z-20 min-h-screen bg-gray-100 p-4 transition-all duration-300 ease-in-out; /* Use transition-all instead of transition-width */
   width: 16rem; /* Default sidebar width when open */
 }
 
@@ -34,8 +34,10 @@
 }
 
 /* Admin Section at Bottom */
+/* ............................................................. */
+
 .admin-section {
-  @apply absolute bottom-0 flex items-center gap-2 p-4 transition-all ease-in-out;
+  @apply fixed bottom-0 left-0 right-0 flex items-center gap-2 p-4 transition-all ease-in-out;
 }
 
 .avatar {
@@ -43,12 +45,14 @@
 }
 
 /* Main Content */
+/* ................................................................................ */
 .main-content {
   margin-left: 4rem; /* Adjust for sidebar width on smaller screens */
   @apply transition-all duration-300;
 }
 
 /*  Content */
+/* .............................................................. */
 .all-content {
   @apply p-8;
 }
@@ -65,6 +69,9 @@
   @apply mb-4 text-xl;
 }
 
+/* task */
+/* .................................................................... */
+
 .task-item {
   @apply mb-2 flex items-center justify-between rounded-md bg-white p-4 shadow-lg transition-colors;
 }
@@ -77,15 +84,23 @@
   @apply font-semibold text-green-500;
 }
 
+/* card  */
+/* ............................................................... */
+
 .card {
-  @apply w-full max-w-xs rounded-lg border border-gray-300 p-6 text-center shadow-lg;
+  @apply flex h-auto w-full transform flex-col items-center rounded-lg border border-gray-300 p-6 text-center shadow-lg transition-all hover:-translate-y-5 hover:scale-105;
 }
 
 .card-button {
-  @apply mt-4 rounded-lg bg-orange-500 px-6 py-2 font-semibold text-white hover:bg-orange-600;
+  @apply mt-16  rounded-lg bg-transparent px-6 py-2 font-semibold text-orange-500 outline   outline-orange-400 hover:bg-orange-600 hover:text-white;
+}
+
+.plan-card {
+  @apply grid gap-8;
 }
 
 /* Responsive Design */
+/* ...................................................................... */
 @screen sm {
   /* Sidebar becomes a bottom bar in small screens */
   .sidebar {
@@ -96,6 +111,10 @@
   .main-content {
     @apply mt-24;
     margin-left: 5rem; /* Full width in small screens */
+  }
+
+  .plan-card {
+    @apply grid-cols-1;
   }
 }
 
@@ -109,6 +128,9 @@
   .main-content {
     @apply flex-1;
     margin-left: 5rem; /* Space reserved for the sidebar when open */
+  }
+  .plan-card {
+    @apply grid-cols-2;
   }
 }
 
@@ -124,6 +146,9 @@
   .menu-item {
     @apply p-6;
   }
+  .plan-card {
+    @apply grid-cols-2;
+  }
 }
 
 /* For extra large screens (1280px and above) */
@@ -135,6 +160,10 @@
   .main-content {
     margin-left: 20rem; /* Large screen adjustment */
   }
+
+  .plan-card {
+    @apply grid-cols-3;
+  }
 }
 
 /* For extra extra large screens (1536px and above) */
@@ -145,5 +174,9 @@
 
   .main-content {
     margin-left: 20rem; /* Very large screens adjustment */
+  }
+
+  .plan-card {
+    @apply grid-cols-3;
   }
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom"; // Use Outlet to render child routes
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/Sidebar/Sidebar";
 
 const MainLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);

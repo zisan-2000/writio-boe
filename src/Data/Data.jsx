@@ -18,35 +18,62 @@ export const tasks = [
   { task: "Setup membership plans", status: "Done", icon: <FaTasks /> },
 ];
 
-// Data.jsx
+//Plan Data.jsx
 
 export const billingOptions = {
   trialPlan: "Basic",
   trialDaysLeft: 6,
-  yearlyDiscount: 17,
+  Discount: 17, // 17% discount
   subscriptionLink: "#", // replace with actual subscription link if needed
 };
 
 export const planOptions = [
   {
     title: "Basic",
-    price: "8.32",
-    save: "Save $20 annually",
-    switchBilling: "Switch to monthly billing",
+    monthlyPrice: 10,
+    get yearlyPrice() {
+      return (this.monthlyPrice * 12).toFixed(2); // Calculate yearly price dynamically
+    },
+    get monthlySave() {
+      return (this.monthlyPrice * (billingOptions.Discount / 100)).toFixed(2); // Calculate monthly save dynamically
+    },
+    get yearlySave() {
+      return (this.yearlyPrice * (billingOptions.Discount / 100)).toFixed(2); // Calculate yearly save dynamically
+    },
+    switchMonthlyBilling: "Switch to monthly billing",
+    switchYearlyBilling: "Switch to yearly billing",
     mostPopular: false,
   },
   {
     title: "Developer",
-    price: "16.64",
-    save: "Save $40 annually",
-    switchBilling: "Switch to monthly billing",
+    monthlyPrice: 20,
+    get yearlyPrice() {
+      return (this.monthlyPrice * 12).toFixed(2); // Calculate yearly price dynamically
+    },
+    get monthlySave() {
+      return (this.monthlyPrice * (billingOptions.Discount / 100)).toFixed(2); // Calculate monthly save dynamically
+    },
+    get yearlySave() {
+      return (this.yearlyPrice * (billingOptions.Discount / 100)).toFixed(2); // Calculate yearly save dynamically
+    },
+    switchMonthlyBilling: "Switch to monthly billing",
+    switchYearlyBilling: "Switch to yearly billing",
     mostPopular: true,
   },
   {
     title: "Pro",
-    price: "83.32",
-    save: "Save $200 annually",
-    switchBilling: "Switch to monthly billing",
+    monthlyPrice: 100,
+    get yearlyPrice() {
+      return (this.monthlyPrice * 12).toFixed(2); // Calculate yearly price dynamically
+    },
+    get monthlySave() {
+      return (this.monthlyPrice * (billingOptions.Discount / 100)).toFixed(2); // Calculate monthly save dynamically
+    },
+    get yearlySave() {
+      return (this.yearlyPrice * (billingOptions.Discount / 100)).toFixed(2); // Calculate yearly save dynamically
+    },
+    switchMonthlyBilling: "Switch to monthly billing",
+    switchYearlyBilling: "Switch to yearly billing",
     mostPopular: false,
   },
 ];

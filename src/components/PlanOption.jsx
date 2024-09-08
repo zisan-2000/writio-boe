@@ -1,6 +1,17 @@
 import React from "react";
 
-const PlanOption = ({ title, price, save, mostPopular, switchBilling }) => {
+const PlanOption = ({
+  title,
+  price,
+  save,
+  mostPopular,
+  switchBilling,
+  isYearly,
+  monthlySave,
+  yearlySave,
+  switchMonthlyBilling,
+  switchYearlyBilling,
+}) => {
   return (
     <div className="card">
       {mostPopular && (
@@ -8,12 +19,21 @@ const PlanOption = ({ title, price, save, mostPopular, switchBilling }) => {
           MOST POPULAR
         </div>
       )}
-      <h3 className="mb-2 text-2xl font-bold">{title}</h3>
-      <p className="mb-2 text-4xl font-bold text-orange-500">${price}</p>
-      <p className="mb-4 text-gray-500">/ month</p>
-      <p className="text-blue-500">{save}</p>
-      <p className="mt-2 cursor-pointer text-blue-500 underline">
-        {switchBilling}
+      <h3 className="mb-6 text-3xl font-bold">{title}</h3>
+      <div className="flex">
+        <p className="mb-2 text-4xl font-bold text-orange-500">${price}</p>
+        <p className="mb-4 ml-2 text-2xl text-gray-400">
+          {isYearly ? "/ year" : "/ month"}{" "}
+          {/* Conditionally render / month or / year */}
+        </p>
+      </div>
+      <p className="text-blue-500">
+        {isYearly
+          ? `Save $${yearlySave} annually`
+          : `Save $${monthlySave} monthly`}
+      </p>
+      <p className="mt-2 cursor-pointer text-orange-500 ">
+        {isYearly ? `${switchYearlyBilling}` : `${switchMonthlyBilling}`}
       </p>
       <button className="card-button">Activate now</button>
     </div>
